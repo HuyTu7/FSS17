@@ -55,7 +55,6 @@ class readCSV():
             self.clean(header_l, 0)
             self.noc = len(self.header)
             self.header_f = False
-            print self.header[2][0]
             for i in range(self.noc):
                 if self.header[i][0] == "?":
                     self.ignore_cols.append(i)
