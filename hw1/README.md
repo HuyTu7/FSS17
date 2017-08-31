@@ -17,4 +17,5 @@ _ POM3A\_test.csv: testing csv table file with added bad lines
 
 <br>
 Time that take to read csv table POM3A.csv file: 0.288194
-10000
+<br>
+Number of rows: 10000
