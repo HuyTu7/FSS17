@@ -7,15 +7,16 @@ Read each line, kill whitepsace and anything after comment characters (#), break
 
 ### Files: 
 
-_ readcsv.py: python file to execute the work for this assignment 
+_ `readcsv.py`: python file to execute the work for this assignment 
 
-_ POM3A.csv: given original csv table file 
+_ `POM3A.csv`: given original csv table file 
 
-_ example.csv: simple testing csv table file 
+_ `example.csv`: simple testing csv table file 
 
-_ POM3A\_test.csv: testing csv table file with added bad lines 
+_ `POM3A\_test.csv`: testing csv table file with added bad lines 
 
+### Report:
 <br>
-Time that take to read csv table POM3A.csv file: 0.288194
+Time that take the program to read csv table POM3A.csv file: 0.288194
 <br>
 Number of rows: 10000
