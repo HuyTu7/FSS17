@@ -26,7 +26,6 @@ python readcsv.py
 ```
 
 ### Report:
-<br>
 Time that take the program to read csv table POM3A.csv file: 0.288194
 <br>
 Number of rows: 10000
