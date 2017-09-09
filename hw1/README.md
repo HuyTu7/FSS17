@@ -13,7 +13,7 @@ _ `POM3A.csv`: given original csv table file
 
 _ `example.csv`: simple testing csv table file 
 
-_ `POM3A\_test.csv`: testing csv table file with added bad lines 
+_ `POM3A_test.csv`: testing csv table file with added bad lines 
 
 ### How to run:
 
