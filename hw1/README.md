@@ -3,7 +3,7 @@
 
 ### Descriptions: 
 
-Read each line, kill whitepsace and anything after comment characters (`#`), break each line on comma, read rows into a list of lists (one list per row), converting strings to numbers where appropriate. Note that some column headers contain `\?`: all such columns should be ignored. 
+Read each line, kill whitepsace and anything after comment characters (`#`), break each line on comma, read rows into a list of lists (one list per row), converting strings to numbers where appropriate. Note that some column headers contain `?`: all such columns should be ignored. 
 
 ### Files: 
 
@@ -18,7 +18,9 @@ _ `POM3A\_test.csv`: testing csv table file with added bad lines
 ### How to run:
 
 - Assuming that you have installed python 2.7
-- Edit the line 
+- Search for the line: `df = readcsv.readfile("./POM3A.csv")`
+- Edit the text inside the quotation for the file that you want the file `readcsv.py` to read
+- Run the file as below in the terminal within the folder:
 ```
 python readcsv.py 
 ```
