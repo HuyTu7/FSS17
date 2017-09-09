@@ -1,4 +1,5 @@
 import time
+import sys
 
 class readCSV():
     def __init__(self):
@@ -36,7 +37,7 @@ class readCSV():
                 if entry:
                     self.header.append(entry)
                 else:
-                    print "There are null element in the header line"
+                    print "- There are null element in the header line"
         else:
             if self.noc == len(entries):
                 row = []
@@ -47,11 +48,11 @@ class readCSV():
                         if entry:
                             row.append(entry)
                         else:
-                            print "There are null element in row %s" % l_index
+                            print "- There are null element in row %s" % l_index
                 self.csv_df.append(row)
             else:
                 print entries
-                print "Not consistent in term of number of columns and the length of the row at row %s" % l_index
+                print "- Not consistent in term of number of columns and the length of the row at row %s" % l_index
 
     def readfile(self, filename):
         with open(filename, "rb") as f2r:
@@ -71,7 +72,7 @@ class readCSV():
                 if not row.endswith(','):
                     self.clean(row, r_index)
                 else:
-                    print "The line %s is incomplete, concatenate to the next line" % r_index
+                    print "\n- The line %s is incomplete, concatenate to the next line" % r_index
                     row += self.remove_mis(f2r.readline())
                     self.clean(row, r_index)
                 r_index += 1
@@ -82,7 +83,9 @@ class readCSV():
 
 readcsv = readCSV()
 start = time.time()
-df = readcsv.readfile("./POM3A.csv")
+filename = sys.argv[-1]
+#df = readcsv.readfile("./POM3A.csv")
+df = readcsv.readfile(filename)
 end = time.time()
 print "Time that take to read csv table: %f" % (end - start)
 #print df
