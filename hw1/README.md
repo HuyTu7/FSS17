@@ -18,11 +18,9 @@ _ `POM3A_test.csv`: testing csv table file with added bad lines
 ### How to run:
 
 - Assuming that you have installed python 2.7
-- Search for the line: `df = readcsv.readfile("./POM3A.csv")`
-- Edit the text inside the quotation for the file that you want the file `readcsv.py` to read
-- Run the file as below in the terminal within the folder:
+- Execute the command line as below in the terminal within the `hw1` folder:
 ```
-python readcsv.py 
+python readcsv.py <file_name>
 ```
 
 ### Report:
