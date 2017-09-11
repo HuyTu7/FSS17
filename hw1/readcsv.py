@@ -9,6 +9,7 @@ class readCSV():
         self.header_f = False
         self.ignore_cols = []
         self.dtype = []
+        self.errorlog = ''
 
     def format(val):
         try:
@@ -87,8 +88,12 @@ filename = sys.argv[-1]
 #df = readcsv.readfile("./POM3A.csv")
 df = readcsv.readfile(filename)
 end = time.time()
+print "There are %s entries in the final table" % len(df)
+print "The table after filtering is:"
+print readcsv.header
+for row in readcsv.csv_df:
+    print row
 print "Time that take to read csv table: %f" % (end - start)
 #print df
-print len(df)
 
 
