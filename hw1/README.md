@@ -1,9 +1,11 @@
 # FSS17
 ## HW1
 
-### Descriptions: 
+### Description: 
 
 Read each line, kill whitepsace and anything after comment characters (`#`), break each line on comma, read rows into a list of lists (one list per row), converting strings to numbers where appropriate. Note that some column headers contain `?`: all such columns should be ignored. 
+
+Your code should contain checks for bad lines (and bad lines should be skipped over); i.e. symbols where numbers should be and wrong number of cells (we will say that row1 has the “right” length).
 
 ### Files: 
 
@@ -18,11 +20,9 @@ _ `POM3A_test.csv`: testing csv table file with added bad lines
 ### How to run:
 
 - Assuming that you have installed python 2.7
-- Search for the line: `df = readcsv.readfile("./POM3A.csv")`
-- Edit the text inside the quotation for the file that you want the file `readcsv.py` to read
-- Run the file as below in the terminal within the folder:
+- Execute the command line as below in the terminal within the `hw1` folder:
 ```
-python readcsv.py 
+python readcsv.py <file_name>
 ```
 
 ### Report:
