@@ -5,6 +5,8 @@
 
 Read each line, kill whitepsace and anything after comment characters (`#`), break each line on comma, read rows into a list of lists (one list per row), converting strings to numbers where appropriate. Note that some column headers contain `?`: all such columns should be ignored. 
 
+Your code should contain checks for bad lines (and bad lines should be skipped over); i.e. symbols where numbers should be and wrong number of cells (we will say that row1 has the “right” length).
+
 ### Files: 
 
 _ `readcsv.py`: python file to execute the work for this assignment 
