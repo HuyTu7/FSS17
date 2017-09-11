@@ -38,7 +38,7 @@ class readCSV():
                 if entry:
                     self.header.append(entry)
                 else:
-                    print "- There are null element in the header line"
+                    self.errorlog += "- There are null element in the header line \n"
         else:
             if self.noc == len(entries):
                 row = []
@@ -49,11 +49,11 @@ class readCSV():
                         if entry:
                             row.append(entry)
                         else:
-                            print "- There are null element in row %s" % l_index
+                            self.errorlog += "- There are null element in row %s \n" % l_index
                 self.csv_df.append(row)
             else:
-                print entries
-                print "- Not consistent in term of number of columns and the length of the row at row %s" % l_index
+                #print entries
+                self.errorlog += "- Not consistent in term of number of columns and the length of the row at row %s \n" % l_index
 
     def readfile(self, filename):
         with open(filename, "rb") as f2r:
@@ -73,7 +73,7 @@ class readCSV():
                 if not row.endswith(','):
                     self.clean(row, r_index)
                 else:
-                    print "\n- The line %s is incomplete, concatenate to the next line" % r_index
+                    self.errorlog += "- The line %s is incomplete, concatenate to the next line \n" % r_index
                     row += self.remove_mis(f2r.readline())
                     self.clean(row, r_index)
                 r_index += 1
@@ -84,16 +84,25 @@ class readCSV():
 
 readcsv = readCSV()
 start = time.time()
-filename = sys.argv[-1]
-#df = readcsv.readfile("./POM3A.csv")
+filename = sys.argv[-2]
+printing = int(sys.argv[-1])
+
+print printing
+
 df = readcsv.readfile(filename)
 end = time.time()
-print "There are %s entries in the final table" % len(df)
-print "The table after filtering is:"
-print readcsv.header
-for row in readcsv.csv_df:
-    print row
 print "Time that take to read csv table: %f" % (end - start)
+
+print "Errors Log:"
+print readcsv.errorlog
+print "There are %s entries in the final table" % len(df)
+
+if printing:
+    print "The table after filtering is:"
+    print readcsv.header
+    for row in readcsv.csv_df:
+        print row
+
 #print df
 
 
