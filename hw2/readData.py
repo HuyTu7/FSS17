@@ -33,6 +33,7 @@ class ReadData:
         self.header = Header()
         self.goals = []
         self.rows = []
+        self.errorlog = ''
 
     def remove_mis(self, line):
         if "#" in line:
@@ -94,32 +95,41 @@ class ReadData:
         try:
             fval = float(val)
             if fval.is_integer():
-                return int(val)
+                return int(val), False
             else:
-                return fval
+                return fval, False
         except ValueError:
-            return val
+            return val, True
 
     def read_table(self, filename):
         with open(filename, "rb") as f2r:
             self.read_header(f2r.readline())
-            index = 0
+            index = 1
             row = f2r.readline()
             while row:
                 r = Row()
                 tmp_cells = self.remove_mis(row).split(",")
                 r.id = index
-                for col in self.header.nums:
-                    tmp_cells[col] = self.format(tmp_cells[col])
-                    if col in self.header.goals:
-                        ind = self.header.goals.index(col)
-                        if tmp_cells[col] < self.goals[ind].min:
-                            self.goals[ind].min = tmp_cells[col]
-                        if tmp_cells[col] > self.goals[ind].max:
-                            self.goals[ind].max = tmp_cells[col]
-
-                r.cells = [c for i, c in enumerate(tmp_cells) if i not in self.header.ignore_cols]
-                self.rows.append(r)
+                row_error = False
+                if self.header.noc == len(tmp_cells):
+                    for col in self.header.nums:
+                        tmp_cells[col], row_error = self.format(tmp_cells[col])
+                        if row_error:
+                            break
+                        else:
+                            if col in self.header.goals:
+                                ind = self.header.goals.index(col)
+                                if tmp_cells[col] < self.goals[ind].min:
+                                    self.goals[ind].min = tmp_cells[col]
+                                if tmp_cells[col] > self.goals[ind].max:
+                                    self.goals[ind].max = tmp_cells[col]
+                    if not row_error:
+                        r.cells = [c for i, c in enumerate(tmp_cells) if i not in self.header.ignore_cols]
+                        self.rows.append(r)
+                    else:
+                        self.errorlog += "- Unexpected data type in line: %s \n" % (index + 1)
+                else:
+                    self.errorlog += "- Not consistent in term of number of columns and the length of the row at row %s \n" % (index + 1)
                 index += 1
                 row = f2r.readline()
             for r in self.rows:
@@ -133,6 +143,7 @@ start = time.time()
 filename = sys.argv[-1]
 sorted_dom_scores = readData.read_table(filename)
 end = time.time()
+print readData.errorlog
 print "There are %s entries in the table" % len(sorted_dom_scores)
 print "Time that takes to read csv table: %f" % (end - start)
 print readData.header.header
