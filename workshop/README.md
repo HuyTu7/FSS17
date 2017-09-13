@@ -7,7 +7,7 @@ K = 5                      |  K = 10 
 
 K = 15                     |  K = 25 
 :-------------------------:|:-------------------------:
-![](knn_15.png)            |  ![](knn_.png)
+![](knn_15.png)            |  ![](knn_25.png)
 
 
 #### How we should choose K in K Nearest Neighbor Classification:
