@@ -13,6 +13,11 @@ Linear                     |  Polynomial
 :-------------------------:|:-------------------------:
 ![](svc_linear.png)        |  ![](svc_poly.png)
 
+Sigmoid                    |  RBF
+:-------------------------:|:-------------------------:
+![](SVC_sigmoid.png)        |  ![](svc_rbf.png)
+
+
 #### How we should choose the kernel for Support Vector Machine:
 
 Given an arbitrary dataset, starting with the simplest hypothesis space first -- the linear kernel -- which works fine if your dataset if linearly separable. Regardless of the results that are achieved similar from all the kernels, the complexity of the latter grows with the size of the training set. Use linear SVMs for linear problems, and nonlinear kernels such as the Radial Basis Function/Polynomial/Sigmoid kernel for non-linear problems. 
