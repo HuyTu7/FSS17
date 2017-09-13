@@ -9,6 +9,9 @@ Choice of K is somewhat driven by the end application as well as the dataset. On
 
 #### Explore different kernels of Support Vector Machine.
 
+Linear                     |  Polynomial
+:-------------------------:|:-------------------------:
+![](svc_linear.png)        |  ![](svc_poly.png)
 
 #### How we should choose the kernel for Support Vector Machine:
 
