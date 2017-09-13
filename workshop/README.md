@@ -1,9 +1,10 @@
 # Workshop 9/12
 
 #### Explore the effects for different K in K Nearest Neighbor classification.
-                           |  
+K = 5                      |  K = 10 
 :-------------------------:|:-------------------------:
 ![](knn_5.png)             |  ![](knn_10.png)
+K = 15                     |  K = 25 
 :-------------------------:|:-------------------------:
 ![](knn_15.png)            |  ![](knn_.png)
 
