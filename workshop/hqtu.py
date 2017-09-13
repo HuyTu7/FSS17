@@ -97,7 +97,35 @@ for n_neighbors in [5, 10, 15, 20]:
 
 """ Part 3 """
 from sklearn import svm
-svc = svm.SVC(kernel='linear')
-svc.fit(iris_X_train, iris_y_train)
-svc.predict(iris_X_test)
+for kernel_varied in ["sigmoid", "poly", "rbf", "linear"]:    
+    svc = svm.SVC(kernel=kernel_varied)
+    svc.fit(iris_X_train, iris_y_train)  
+    print svc.predict(iris_X_test)
 print iris_y_test
+svc = None
+for kernel_varied in ["sigmoid", "poly", "rbf", "linear"]:
+    if kernel_varied == "sigmoid":
+        svc = svm.SVC(kernel=kernel_varied, gamma=2)
+    svc = svm.SVC(kernel=kernel_varied)
+    svc.fit(X, y)
+
+    # Plot the decision boundary. For that, we will assign a color to each
+    # point in the mesh [x_min, x_max]x[y_min, y_max].
+    xx, yy = np.meshgrid(np.arange(x_min, x_max, h),
+                         np.arange(y_min, y_max, h))
+    Z = svc.predict(np.c_[xx.ravel(), yy.ravel()])
+
+    # Put the result into a color plot
+    Z = Z.reshape(xx.shape)
+    plt.figure()
+    plt.pcolormesh(xx, yy, Z, cmap=cmap_light)
+
+    # Plot also the training points
+    plt.scatter(X[:, 0], X[:, 1], c=y, cmap=cmap_bold,
+                edgecolor='k', s=20)
+    plt.xlim(xx.min(), xx.max())
+    plt.ylim(yy.min(), yy.max())
+    plt.title("SVC classification (kernel = '%s')"
+              % (kernel_varied))
+
+    plt.show()
