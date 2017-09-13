@@ -2,6 +2,11 @@
 
 #### Explore the effects for different K in K Nearest Neighbor classification.
 
+:-------------------------:|:-------------------------:
+![](knn_5.png)             |  ![](knn_10.png)
+:-------------------------:|:-------------------------:
+![](knn_15.png)            |  ![](knn_.png)
+
 
 #### How we should choose K in K Nearest Neighbor Classification:
 
