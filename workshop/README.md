@@ -1,7 +1,7 @@
 # Workshop 9/12
 
 #### Explore the effects for different K in K Nearest Neighbor classification.
-
+                           |  
 :-------------------------:|:-------------------------:
 ![](knn_5.png)             |  ![](knn_10.png)
 :-------------------------:|:-------------------------:
