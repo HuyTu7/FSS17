@@ -79,7 +79,6 @@ class readCSV():
                 else:
                     self.syms.append(i)
 
-            print self.syms
             r_index = 2
             row = f2r.readline()
             while row:
@@ -101,8 +100,6 @@ readcsv = readCSV()
 start = time.time()
 filename = sys.argv[-2]
 printing = int(sys.argv[-1])
-
-print printing
 
 df = readcsv.readfile(filename)
 end = time.time()
