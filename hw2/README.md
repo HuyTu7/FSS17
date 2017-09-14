@@ -5,12 +5,12 @@
 
 + Read lines from CSV files one a time incrementally updating column headers for each line.
 + Headers are either Nums or Syms as determined by the magic characters in row1.
-+ Num and Syms incremental maintain knowledge about mean, standard deviation, and symbol counts in a column. For details, see the update function in:
-  + Num
-  + Sym
++ Num and Syms incremental maintain knowledge about `mean`, `standard deviation`, and symbol `counts` in a column. For details, see the update function in:
+  + [Num](https://lualure.github.io/info/num.html)
+  + [Sym](https://lualure.github.io/info/sym.html)
 + So when the table reads row1, it builds the headers of Nums and Syms. And when the other rows are read, the headers get updated.
-+ Code up the domination counter (the dom function in Tbl which also uses dominate and dominate1 in Row
-+ Test: Find and print the top and bottom ten rows of auto.csv, as sorted by their dom score. with the top 5 and the bottom 5 domination scores. 
++ Code up the domination counter (the dom function in Tbl which also uses dominate and dominate1 in [Row](https://lualure.github.io/info/row.html)
++ Test: Find and print the top and bottom ten rows of `auto.csv`, as sorted by their dom score. with the top 5 and the bottom 5 domination scores. 
 
 ### Files: 
 
