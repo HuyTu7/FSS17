@@ -9,7 +9,7 @@
   + [Num](https://lualure.github.io/info/num.html)
   + [Sym](https://lualure.github.io/info/sym.html)
 + So when the table reads row1, it builds the headers of Nums and Syms. And when the other rows are read, the headers get updated.
-+ Code up the domination counter (the dom function in Tbl which also uses dominate and dominate1 in [Row](https://lualure.github.io/info/row.html)
++ Code up the domination counter (the dom function in [Tbl](https://lualure.github.io/info/tbl.html) which also uses dominate and dominate1 in [Row](https://lualure.github.io/info/row.html)
 + Test: Find and print the top and bottom ten rows of `auto.csv`, as sorted by their dom score. with the top 5 and the bottom 5 domination scores. 
 
 ### Files: 
