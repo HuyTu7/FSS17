@@ -103,18 +103,17 @@ printing = int(sys.argv[-1])
 
 df = readcsv.readfile(filename)
 end = time.time()
-print "Time that take to read csv table: %f" % (end - start)
+print "Results are recorded in the output text file %s" % (filename + "_result.txt")
 
-print "Errors Log:"
-print readcsv.errorlog
-print "There are %s entries in the final table" % len(df)
-
+records_txt = open(filename + "_result.txt", "w")
+records_txt.write("Time that take to read csv table: %f\n" % (end - start))
+records_txt.write("Errors Log: \n%s" % readcsv.errorlog)
+records_txt.write("There are %s entries in the final table\n" % len(df))
 if printing:
-    print "The table after filtering is:"
-    print readcsv.header
+    records_txt.write("The table after filtering is: \n")
+    records_txt.write(", ".join(readcsv.header))
+    records_txt.write("\n")
     for row in readcsv.csv_df:
-        print row
-
-#print df
-
-
+        records_txt.write(" ".join(row))
+        records_txt.write("\n")
+records_txt.close()
