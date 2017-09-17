@@ -7,18 +7,10 @@ class Header:
     def __init__(self):
         self.header = []
         self.noc = -1
-        self.nums = []
-        self.syms = []
+        self.nums = dict()
+        self.syms = dict()
         self.goals =[]
         self.ignore_cols = []
-
-
-class Goal:
-    def __init__(self):
-        self.index = -1
-        self.weight = 0
-        self.max = (math.exp(32))
-        self.min = (-math.exp(32))
 
 
 class Row:
@@ -31,7 +23,6 @@ class Row:
 class ReadData:
     def __init__(self):
         self.header = Header()
-        self.goals = []
         self.rows = []
         self.errorlog = ''
 
@@ -54,31 +45,77 @@ class ReadData:
             if cate == "?":
                 self.header.ignore_cols.append(i)
             elif cate == "$" or cate == "<" or cate == ">":
-                self.header.nums.append(i)
+                self.header.nums[str(i)] = {'index': i, 'n': 0, 'mu': 0, 'm2': 0,
+                                            'sd': 0, 'hi': -math.exp(32),'lo': -math.exp(32), 'w': 1}
                 if cate == "<" or cate == ">":
-                    g = Goal()
-                    g.index = i
-                    self.header.goals.append(i)
                     if cate == ">":
-                        g.weight = 1
+                        self.header.goals.append((i, 1))
                     else:
-                        g.weight = -1
-                    self.goals.append(g)
+                        self.header.goals.append((i, -1))
             else:
-                self.header.syms.append(i)
+                self.header.syms[str(i)] = {'n': 0, 'nk': 0, 'counts': dict(),
+                                            'most': 0, 'mode': None, '_ent' : None}
 
-    def norm(self, g_i, row_i):
-        hi = g_i.max
-        lo = g_i.min
-        return (row_i[g_i.index] - lo) / (hi - lo + (math.exp(-32)))
+    def format(self, val):
+        try:
+            fval = float(val)
+            if fval.is_integer():
+                return int(val), False
+            else:
+                return fval, False
+        except ValueError:
+            return val, True
+
+    def num_update(self, i, x):
+        if i not in self.header.ignore_cols:
+            col = self.header.nums[str(i)]
+            col['n'] = col['n'] + 1
+            if x < col['lo']:
+                col['lo'] = x
+            if x > col['hi']:
+                col['hi'] = x
+            #print " %s" %  x
+            #print "Mu %s" % col['mu']
+            delta = x - col['mu']
+            col['mu'] += delta / col['n']
+            col['m2'] += delta * (x - col['mu'])
+            if col['n'] > 1:
+                col['sd'] = (col['m2'] / (col['n'] - 1)) ** 0.5
+            self.header.nums[str(i)] = col
+
+    def num_norm(self, i, x):
+        col = self.header.nums[str(i)]
+        if i in self.header.ignore_cols:
+            return x[i]
+        else:
+            return (x[i] - col['lo']) / (col['hi'] - col['lo'] + math.exp(-32))
+
+    def sym_update(self, i, x):
+        if i not in self.header.ignore_cols:
+            x = str(x)
+            col = self.header.syms[str(i)]
+            col['n'] = col['n'] + 1
+            col['_ent'] = None
+            if x not in col['counts'].keys():
+                col['nk'] += 1
+                col['counts'][x] = 1
+            seen = col['counts'][x] + 1
+            col['counts'][x] = seen
+            if seen > col['most']:
+                col['most'] = seen
+                col['mode'] = x
+            self.header.syms[str(i)] = col
+
+    def sym_norm(self, i, x):
+        return x
 
     def dominate1(self, i, j):
-        e, n = math.exp(1), len(self.goals)
+        e, n = math.exp(1), len(self.header.goals)
         sum1, sum2 = 0, 0
-        for g in self.goals:
-            w = g.weight
-            x = self.norm(g, i)
-            y = self.norm(g, j)
+        for g in self.header.goals:
+            w = g[1]
+            x = self.num_norm(g[0], i)
+            y = self.num_norm(g[0], j)
             sum1 -= e**(w * (x - y) / n)
             sum2 -= e**(w * (y - x) / n)
         return (sum1 / n) < (sum2 / n)
@@ -91,16 +128,6 @@ class ReadData:
                     tmp += 1
         return tmp
 
-    def format(self, val):
-        try:
-            fval = float(val)
-            if fval.is_integer():
-                return int(val), False
-            else:
-                return fval, False
-        except ValueError:
-            return val, True
-
     def read_table(self, filename):
         with open(filename, "rb") as f2r:
             self.read_header(f2r.readline())
@@ -110,20 +137,21 @@ class ReadData:
                 r = Row()
                 tmp_cells = self.remove_mis(row).split(",")
                 r.id = index
-                row_error = False
+                string_val = False
                 if self.header.noc == len(tmp_cells):
-                    for col in self.header.nums:
-                        tmp_cells[col], row_error = self.format(tmp_cells[col])
-                        if row_error:
-                            break
-                        else:
-                            if col in self.header.goals:
-                                ind = self.header.goals.index(col)
-                                if tmp_cells[col] < self.goals[ind].min:
-                                    self.goals[ind].min = tmp_cells[col]
-                                if tmp_cells[col] > self.goals[ind].max:
-                                    self.goals[ind].max = tmp_cells[col]
-                    if not row_error:
+                    for c in range(self.header.noc):
+                        if c not in self.header.ignore_cols:
+                            tmp_cells[c], string_val = self.format(tmp_cells[c])
+                            if str(c) in self.header.syms.keys():
+                                self.sym_update(c, tmp_cells[c])
+                            elif str(c) in self.header.nums.keys():
+                                if not string_val:
+                                    self.num_update(c, tmp_cells[c])
+                                else:
+                                    break
+                            else:
+                                pass
+                    if not string_val:
                         r.cells = [c for i, c in enumerate(tmp_cells) if i not in self.header.ignore_cols]
                         self.rows.append(r)
                     else:

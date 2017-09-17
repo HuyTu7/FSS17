@@ -1,25 +1,27 @@
 import time
 import sys
 
+
 class readCSV():
     def __init__(self):
         self.header = []
         self.csv_df = []
         self.noc = -1
         self.header_f = False
+        self.nums = []
+        self.syms = []
         self.ignore_cols = []
-        self.dtype = []
         self.errorlog = ''
 
-    def format(val):
+    def format(self, val):
         try:
             fval = float(val)
             if fval.is_integer():
-                return int(val)
+                return int(val), False
             else:
-                return fval
+                return fval, False
         except ValueError:
-            return val
+            return val, True
 
     def remove_mis(self, line):
         if "#" in line:
@@ -34,7 +36,6 @@ class readCSV():
         if self.header_f:
             for entry in entries:
                 entry = entry.strip()
-                #print entry
                 if entry:
                     self.header.append(entry)
                 else:
@@ -47,10 +48,16 @@ class readCSV():
                     if index not in self.ignore_cols:
                         entry = entries[index].strip()
                         if entry:
-                            row.append(entry)
+                            string_type = self.format(entry)[1]
+                            if (index in self.nums and string_type) or (index in self.syms and not string_type):
+                                self.errorlog += "- There is inappropriate data type at the line %s \n" % l_index
+                                break
+                            else:
+                                row.append(entry)
                         else:
                             self.errorlog += "- There are null element in row %s \n" % l_index
-                self.csv_df.append(row)
+                if len(row) == self.noc - len(self.ignore_cols):
+                    self.csv_df.append(row)
             else:
                 #print entries
                 self.errorlog += "- Not consistent in term of number of columns and the length of the row at row %s \n" % l_index
@@ -64,8 +71,14 @@ class readCSV():
             self.noc = len(self.header)
             self.header_f = False
             for i in range(self.noc):
-                if self.header[i][0] == "?":
+                cate = self.header[i][0]
+                if cate == "?":
                     self.ignore_cols.append(i)
+                elif cate == "$" or cate == "<" or cate == ">":
+                    self.nums.append(i)
+                else:
+                    self.syms.append(i)
+
             r_index = 2
             row = f2r.readline()
             while row:
@@ -74,6 +87,7 @@ class readCSV():
                     self.clean(row, r_index)
                 else:
                     self.errorlog += "- The line %s is incomplete, concatenate to the next line \n" % r_index
+                    r_index += 1
                     row += self.remove_mis(f2r.readline())
                     self.clean(row, r_index)
                 r_index += 1
@@ -87,22 +101,19 @@ start = time.time()
 filename = sys.argv[-2]
 printing = int(sys.argv[-1])
 
-print printing
-
 df = readcsv.readfile(filename)
 end = time.time()
-print "Time that take to read csv table: %f" % (end - start)
+print "Results are recorded in the output text file %s" % (filename + "_result.txt")
 
-print "Errors Log:"
-print readcsv.errorlog
-print "There are %s entries in the final table" % len(df)
-
+records_txt = open(filename + "_result.txt", "w")
+records_txt.write("Time that take to read csv table: %f\n" % (end - start))
+records_txt.write("Errors Log: \n%s" % readcsv.errorlog)
+records_txt.write("There are %s entries in the final table\n" % len(df))
 if printing:
-    print "The table after filtering is:"
-    print readcsv.header
+    records_txt.write("The table after filtering is: \n")
+    records_txt.write(", ".join(readcsv.header))
+    records_txt.write("\n")
     for row in readcsv.csv_df:
-        print row
-
-#print df
-
-
+        records_txt.write(" ".join(row))
+        records_txt.write("\n")
+records_txt.close()

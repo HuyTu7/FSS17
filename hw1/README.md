@@ -15,14 +15,17 @@ _ `POM3A.csv`: given original csv table file
 
 _ `example.csv`: simple testing csv table file 
 
+_ `test.txt`: simple testing csv table file with wrong data type in some lines
+
 _ `POM3A_test.csv`: testing csv table file with added bad lines 
 
 ### How to run:
 
 - Assuming that you have installed python 2.7
+- 1 after the filename for printing the table while 0 is for not printing the table
 - Execute the command line as below in the terminal within the `hw1` folder:
 ```
-python readcsv.py <file_name>
+python readcsv.py <file_name> <1/0>
 ```
 
 ### Report:
