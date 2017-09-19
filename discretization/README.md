@@ -2,10 +2,10 @@
 
 ## Problem 3: Discretization
 
-## Descriptions:
+### Descriptions:
 
 
-## Files:
+### Files:
 
 
-## Report:
+### Report:
