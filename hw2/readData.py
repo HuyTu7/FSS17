@@ -166,6 +166,7 @@ class ReadData:
         sort = sorted(self.rows, key=lambda r: r.rank)
         return sort
 
+    
 readData = ReadData()
 start = time.time()
 filename = sys.argv[-1]
