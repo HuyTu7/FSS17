@@ -1,4 +1,4 @@
-import range as RANGE
+import range_1 as RANGE
 from sample_random import Random as R
 
 
