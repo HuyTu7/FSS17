@@ -60,9 +60,3 @@ def unsup_discret(t, x, last):
             nextRange(i)
             last = x1
     return i['ranges']
-
-
-if __name__ == "__main__":
-    v = [10, 9, 8, 6, 1, 2, 3, 4, 5, 11, 12, 13]
-    unsup_discret(v, x, 0)
-    #main(v,x,0)
