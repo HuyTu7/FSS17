@@ -80,6 +80,8 @@ class ReadData:
     def num_update(self, i, x):
         col = i
         col['n'] = col['n'] + 1
+        #print x
+        #print col['mu']
         if x < col['lo']:
             col['lo'] = x
         if x > col['hi']:
