@@ -1,5 +1,6 @@
 import math
 
+
 class Sample:
     def __init__(self, most):
         self._all = dict()
@@ -8,10 +9,10 @@ class Sample:
 
     def update(self, x, r):
         self.n += 1
-        if self._all < i.most:
-            self._all[len(self._all)] = x
-        elif r < float(len(self._all))/i.n:
-            self._all[math.floor(1 + r*len(self._all))] = x
+        if self._all < self.most:
+            self._all[str(len(self._all))] = x
+        elif r < float(len(self._all))/self.n:
+            self._all[str(math.floor(1 + r*len(self._all)))] = x
         else:
             pass
         return x
@@ -20,7 +21,7 @@ class Sample:
 class Random:
     def __init__(self):
         self.seed0 = 10013
-        self.seed = seed0
+        self.seed = self.seed0
         self.multipler = 16807.0
         self.modulus = 2147483647.0
         self.randomtable = None
@@ -39,12 +40,12 @@ class Random:
     def system(self):
         return self.rseed(math.random() * self.modulus)
 
-    def r(self, x, i):
+    def r(self):
         if not self.randomtable:
             self.randomtable = dict()
             for i in range(1, 98):
-                self.randomtable[i] = self.park_miller_randomizer()
+                self.randomtable[str(i)] = self.park_miller_randomizer()
         x = self.park_miller_randomizer()
         i = 1 + math.floor(97 * x)
-        x, self.randomtable[i] = self.randomtable[i], x
+        x, self.randomtable[str(int(i))] = self.randomtable[str(int(i))], x
         return x
