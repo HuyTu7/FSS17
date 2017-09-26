@@ -38,5 +38,8 @@ Reflects over the ranges found by the unsupervised discretizer. Combine ranges w
 
 - `suprange_test.py`: testing the supervised discretization 
 
+### How to run:
+
+
 
 ### Report:
