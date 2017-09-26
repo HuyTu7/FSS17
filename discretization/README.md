@@ -12,6 +12,8 @@ Takes a table column of `N` numbers, sorts in, and breaks into bins of size appr
 + the `span` of the range `(hi - lo)` is greater than that `epsilon`;
 + the `lo` value of one range is greater than the `hi` value of the previous range
 
+Note: This code follows EFD type of unsupervised discretization which stands for Equal frequency discretisation i.e. divide the numbers according to percentiles says (e.g.) lower, middle, upper third of the numbers
+
 #### Supervised Discretization: [superrange](https://lualure.github.io/info/superrange)
 
 Reflects over the ranges found by the unsupervised discretizer. Combine ranges where some dependent variable is not changed across that combination of ranges. Specifically, sort the ranges and do a recursive descent of the ranges. At each level of the recursion, break the ranges at the point that most minimizes the expected value of the standard deviation of the dependent variable.
