@@ -51,9 +51,9 @@ python suprange_test.py
 Results after running the test file:
 ```
 We have many unsupervised ranges.
-('x', 0, {'_all': <sample_random.Sample instance at 0x7f4b5ffae3b0>, 'lo': 0.006301905962779143, 'hi': 0.2566107857304675, 'span': 0.2503088797676884, 'n': 26})
-('x', 1, {'_all': <sample_random.Sample instance at 0x7f4b5ffae3f8>, 'lo': 0.2621757547660618, 'hi': 0.47683985646666954, 'span': 0.21466410170060773, 'n': 26})
-('x', 2, {'_all': <sample_random.Sample instance at 0x7f4b5ffae440>, 'lo': 0.4996578257994996, 'hi': 0.9985929657698576, 'span': 0.498935139970358, 'n': 48})
+('x', 0, {'lo': 0.006301905962779143, 'hi': 0.2566107857304675, 'span': 0.2503088797676884, 'n': 26})
+('x', 1, {'lo': 0.2621757547660618, 'hi': 0.47683985646666954, 'span': 0.21466410170060773, 'n': 26})
+('x', 2, {'lo': 0.4996578257994996, 'hi': 0.9985929657698576, 'span': 0.498935139970358, 'n': 48})
 
 We have fewer supervised ranges.
 ('super', 0, {'most': 0.47683985646666954, 'label': 1})
