@@ -40,6 +40,10 @@ Reflects over the ranges found by the unsupervised discretizer. Combine ranges w
 
 ### How to run:
 
-
+- Assuming that you have installed python 2.7
+- Execute the command line as below in the terminal within the `discretization` folder to test the unsupervised and supervised discretization:
+```
+python suprange_test.py 
+```
 
 ### Report:
