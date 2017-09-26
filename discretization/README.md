@@ -17,14 +17,24 @@ Takes a table column of `N` numbers, sorts in, and breaks into bins of size appr
 Reflects over the ranges found by the unsupervised discretizer. Combine ranges where some dependent variable is not changed across that combination of ranges. Specifically, sort the ranges and do a recursive descent of the ranges. At each level of the recursion, break the ranges at the point that most minimizes the expected value of the standard deviation of the dependent variable.
 
 ### Files:
-- `range_1.py`: unsupervised discretization 
+#### main:
+- `range_1.py`: the implementation of unsupervised discretization 
 
-- `range_test.py`: testing the unsupervised discretization 
+- `super_range.py`:  the implementation of supervised discretization 
 
+#### helpers:
 - `sample_random.py`: 
   - Random class: similar to `math.random()` as the replacement for the ANSI C rand() and srand() functions
   - Sample class: a sample of the numbers in this range;
 
-- `readData.py`: updated Nums and Syms to be used for unsupervised and supervised discretization of data
+- `num.py`: the implementation of NUM class extracted from `readData.py` from hw2 for numeric type of data operating
+
+- `sym.py`: the implementation of SYM class extracted from `readData.py` from hw2 for symbolic type of data operating
+ 
+#### tests:
+- `range_test.py`: testing the unsupervised discretization 
+
+- `suprange_test.py`: testing the supervised discretization 
+
 
 ### Report:
