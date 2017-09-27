@@ -176,8 +176,4 @@ class ReadData:
 
         sort = sorted(self.rows, key=lambda r: r.rank)
         return sort
-
-
-
-
-
+    
