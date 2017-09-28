@@ -66,6 +66,11 @@ class ReadData:
         except ValueError:
             return val, True
 
+    def sym_create(self):
+        sym = {'n': 0, 'nk': 0, 'counts': dict(),
+               'most': 0, 'mode': None, '_ent': None}
+        return sym
+
     def num_create(self):
         nums = {'n': 0, 'mu': 0, 'm2': 0, 'sd': 0,
                 'hi': -math.exp(32), 'lo': math.exp(32), 'w': 1}
@@ -80,8 +85,6 @@ class ReadData:
     def num_update(self, i, x):
         col = i
         col['n'] = col['n'] + 1
-        #print x
-        #print col['mu']
         if x < col['lo']:
             col['lo'] = x
         if x > col['hi']:
@@ -91,7 +94,6 @@ class ReadData:
         col['m2'] += delta * (x - col['mu'])
         if col['n'] > 1:
             col['sd'] = (col['m2'] / (col['n'] - 1)) ** 0.5
-        #self.header.nums[str(i)] = col
         return col
 
 
@@ -104,7 +106,7 @@ class ReadData:
 
     def sym_update(self, i, x):
         x = str(x)
-        col = self.header.syms[str(i)]
+        col = i
         col['n'] += 1
         col['_ent'] = None
         if x not in col['counts'].keys():
@@ -115,10 +117,19 @@ class ReadData:
         if seen > col['most']:
             col['most'] = seen
             col['mode'] = x
-        self.header.syms[str(i)] = col
+        #self.header.syms[str(i)] = col
+        return col
 
     def sym_norm(self, i, x):
         return x
+
+    def ent(self, i):
+        if not i['_ent']:
+            e = 0
+            for _, f in enumerate(i['counts']):
+                e -= (f / i['n']) * math.log((f / i['n']), 2)
+            i['_ent'] = e
+        return i['_ent']
 
     def dominate1(self, i, j):
         e, n = math.exp(1), len(self.header.goals)
@@ -154,7 +165,7 @@ class ReadData:
                         if c not in self.header.ignore_cols:
                             tmp_cells[c], string_val = self.format(tmp_cells[c])
                             if str(c) in self.header.syms.keys():
-                                self.sym_update(c, tmp_cells[c])
+                                self.header.syms[str(c)] = self.sym_update(self.header.syms[str(c)], tmp_cells[c])
                             elif str(c) in self.header.nums.keys():
                                 if not string_val:
                                     self.header.nums[str(c)] = self.num_update(self.header.nums[str(c)], tmp_cells[c])
