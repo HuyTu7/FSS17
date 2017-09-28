@@ -45,8 +45,8 @@ class ReadData:
             if cate == "?":
                 self.header.ignore_cols.append(i)
             elif cate == "$" or cate == "<" or cate == ">":
-                self.header.nums[str(i)] = {'index': i, 'n': 0, 'mu': 0, 'm2': 0,
-                                            'sd': 0, 'hi': -math.exp(32),'lo': -math.exp(32), 'w': 1}
+                self.header.nums[str(i)] = {'n': 0, 'mu': 0, 'm2': 0,
+                                            'sd': 0, 'hi': -math.exp(32),'lo': math.exp(32), 'w': 1}
                 if cate == "<" or cate == ">":
                     if cate == ">":
                         self.header.goals.append((i, 1))
@@ -66,22 +66,34 @@ class ReadData:
         except ValueError:
             return val, True
 
+    def num_create(self):
+        nums = {'n': 0, 'mu': 0, 'm2': 0, 'sd': 0,
+                'hi': -math.exp(32), 'lo': math.exp(32), 'w': 1}
+        return nums
+
+    def updates(self, t, f):
+        all = self.num_create()
+        for _, one in enumerate(t):
+            self.num_update(all, f(one))
+        return all
+
     def num_update(self, i, x):
-        if i not in self.header.ignore_cols:
-            col = self.header.nums[str(i)]
-            col['n'] = col['n'] + 1
-            if x < col['lo']:
-                col['lo'] = x
-            if x > col['hi']:
-                col['hi'] = x
-            #print " %s" %  x
-            #print "Mu %s" % col['mu']
-            delta = x - col['mu']
-            col['mu'] += delta / col['n']
-            col['m2'] += delta * (x - col['mu'])
-            if col['n'] > 1:
-                col['sd'] = (col['m2'] / (col['n'] - 1)) ** 0.5
-            self.header.nums[str(i)] = col
+        col = i
+        col['n'] = col['n'] + 1
+        #print x
+        #print col['mu']
+        if x < col['lo']:
+            col['lo'] = x
+        if x > col['hi']:
+            col['hi'] = x
+        delta = x - col['mu']
+        col['mu'] += delta / col['n']
+        col['m2'] += delta * (x - col['mu'])
+        if col['n'] > 1:
+            col['sd'] = (col['m2'] / (col['n'] - 1)) ** 0.5
+        #self.header.nums[str(i)] = col
+        return col
+
 
     def num_norm(self, i, x):
         col = self.header.nums[str(i)]
@@ -91,20 +103,19 @@ class ReadData:
             return (x[i] - col['lo']) / (col['hi'] - col['lo'] + math.exp(-32))
 
     def sym_update(self, i, x):
-        if i not in self.header.ignore_cols:
-            x = str(x)
-            col = self.header.syms[str(i)]
-            col['n'] = col['n'] + 1
-            col['_ent'] = None
-            if x not in col['counts'].keys():
-                col['nk'] += 1
-                col['counts'][x] = 1
-            seen = col['counts'][x] + 1
-            col['counts'][x] = seen
-            if seen > col['most']:
-                col['most'] = seen
-                col['mode'] = x
-            self.header.syms[str(i)] = col
+        x = str(x)
+        col = self.header.syms[str(i)]
+        col['n'] += 1
+        col['_ent'] = None
+        if x not in col['counts'].keys():
+            col['nk'] += 1
+            col['counts'][x] = 1
+        seen = col['counts'][x] + 1
+        col['counts'][x] = seen
+        if seen > col['most']:
+            col['most'] = seen
+            col['mode'] = x
+        self.header.syms[str(i)] = col
 
     def sym_norm(self, i, x):
         return x
@@ -146,7 +157,7 @@ class ReadData:
                                 self.sym_update(c, tmp_cells[c])
                             elif str(c) in self.header.nums.keys():
                                 if not string_val:
-                                    self.num_update(c, tmp_cells[c])
+                                    self.header.nums[str(c)] = self.num_update(self.header.nums[str(c)], tmp_cells[c])
                                 else:
                                     break
                             else:
@@ -165,24 +176,3 @@ class ReadData:
 
         sort = sorted(self.rows, key=lambda r: r.rank)
         return sort
-
-    
-readData = ReadData()
-start = time.time()
-filename = sys.argv[-1]
-sorted_dom_scores = readData.read_table(filename)
-end = time.time()
-print readData.errorlog
-print "There are %s entries in the table" % len(sorted_dom_scores)
-print "Time that takes to read csv table: %f" % (end - start)
-print readData.header.header
-print "Top 5 rows for their domination scores"
-for top in sorted_dom_scores[-5:]:
-    print top.cells, top.id
-print "\nBottom 5 rows for their domination scores"
-for bottom in sorted_dom_scores[:5]:
-    print bottom.cells, bottom.id
-
-
-
-
