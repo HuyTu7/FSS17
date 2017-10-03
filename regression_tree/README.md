@@ -10,7 +10,7 @@ Building regression tree learner:
 
 
 ### Files:
-
+- `sdtree`: implementation of regression tree learner
 
 ### How to run:
 
