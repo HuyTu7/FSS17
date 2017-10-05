@@ -12,6 +12,7 @@ Building regression tree learner:
 ### Files:
 - `sdtree.py`: implementation of regression tree learner
 - `num.py`: implementation of numeric data variables 
+- `sym.py`: implementation of symbolic data variables 
 - `sdtree_test.py`: implementation of testing file for sdtree
 
 ### How to run:
