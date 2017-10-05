@@ -17,5 +17,8 @@ Building regression tree learner:
 
 ### How to run:
 
+- Assuming that you have installed python 2.7
+- Execute the command line as below in the terminal within the `regression_tree` folder:
+
 
 ### Report:
