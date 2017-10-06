@@ -1,3 +1,5 @@
+import sys
+sys.path.append('../utils/')
 from sample_random import Random as RANDOM
 import range_1 as RANGE
 import super_range as SUPER_R
