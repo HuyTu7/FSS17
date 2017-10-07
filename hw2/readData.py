@@ -1,6 +1,8 @@
-import time
 import sys
+sys.path.append('../utils/')
 import math
+from num import NUM
+from sym import SYM
 
 
 class Header:
@@ -45,16 +47,14 @@ class ReadData:
             if cate == "?":
                 self.header.ignore_cols.append(i)
             elif cate == "$" or cate == "<" or cate == ">":
-                self.header.nums[str(i)] = {'n': 0, 'mu': 0, 'm2': 0,
-                                            'sd': 0, 'hi': -math.exp(32),'lo': math.exp(32), 'w': 1}
+                self.header.nums[str(i)] = NUM()
                 if cate == "<" or cate == ">":
                     if cate == ">":
                         self.header.goals.append((i, 1))
                     else:
                         self.header.goals.append((i, -1))
             else:
-                self.header.syms[str(i)] = {'n': 0, 'nk': 0, 'counts': dict(),
-                                            'most': 0, 'mode': None, '_ent' : None}
+                self.header.syms[str(i)] = SYM()
 
     def format(self, val):
         try:
@@ -66,67 +66,13 @@ class ReadData:
         except ValueError:
             return val, True
 
-    def num_create(self):
-        nums = {'n': 0, 'mu': 0, 'm2': 0, 'sd': 0,
-                'hi': -math.exp(32), 'lo': math.exp(32), 'w': 1}
-        return nums
-
-    def updates(self, t, f):
-        all = self.num_create()
-        for _, one in enumerate(t):
-            self.num_update(all, f(one))
-        return all
-
-    def num_update(self, i, x):
-        col = i
-        col['n'] = col['n'] + 1
-        #print x
-        #print col['mu']
-        if x < col['lo']:
-            col['lo'] = x
-        if x > col['hi']:
-            col['hi'] = x
-        delta = x - col['mu']
-        col['mu'] += delta / col['n']
-        col['m2'] += delta * (x - col['mu'])
-        if col['n'] > 1:
-            col['sd'] = (col['m2'] / (col['n'] - 1)) ** 0.5
-        #self.header.nums[str(i)] = col
-        return col
-
-
-    def num_norm(self, i, x):
-        col = self.header.nums[str(i)]
-        if i in self.header.ignore_cols:
-            return x[i]
-        else:
-            return (x[i] - col['lo']) / (col['hi'] - col['lo'] + math.exp(-32))
-
-    def sym_update(self, i, x):
-        x = str(x)
-        col = self.header.syms[str(i)]
-        col['n'] += 1
-        col['_ent'] = None
-        if x not in col['counts'].keys():
-            col['nk'] += 1
-            col['counts'][x] = 1
-        seen = col['counts'][x] + 1
-        col['counts'][x] = seen
-        if seen > col['most']:
-            col['most'] = seen
-            col['mode'] = x
-        self.header.syms[str(i)] = col
-
-    def sym_norm(self, i, x):
-        return x
-
     def dominate1(self, i, j):
         e, n = math.exp(1), len(self.header.goals)
         sum1, sum2 = 0, 0
         for g in self.header.goals:
             w = g[1]
-            x = self.num_norm(g[0], i)
-            y = self.num_norm(g[0], j)
+            x = self.header.nums[str(g[0])].norm(i[g[0]])
+            y = self.header.nums[str(g[0])].norm(j[g[0]])
             sum1 -= e**(w * (x - y) / n)
             sum2 -= e**(w * (y - x) / n)
         return (sum1 / n) < (sum2 / n)
@@ -154,10 +100,10 @@ class ReadData:
                         if c not in self.header.ignore_cols:
                             tmp_cells[c], string_val = self.format(tmp_cells[c])
                             if str(c) in self.header.syms.keys():
-                                self.sym_update(c, tmp_cells[c])
+                                self.header.syms[str(c)].update(tmp_cells[c])
                             elif str(c) in self.header.nums.keys():
                                 if not string_val:
-                                    self.header.nums[str(c)] = self.num_update(self.header.nums[str(c)], tmp_cells[c])
+                                    self.header.nums[str(c)].update(tmp_cells[c])
                                 else:
                                     break
                             else:
