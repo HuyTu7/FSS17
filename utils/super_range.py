@@ -1,7 +1,7 @@
 import copy
 from num import NUM
 from sym import SYM
-import range_1 as RANGE
+import range as RANGE
 
 
 def below(x, y): return x < y
@@ -72,5 +72,4 @@ def sup_discretize(things, x, y, nump, lessp, split):
         return bin
 
     combine(1, len(ranges)-1, memo(0, len(ranges) - 1, {}, None), 1, 0)
-    #print breaks
     return labels(breaks)
