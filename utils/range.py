@@ -57,8 +57,9 @@ def val_format(val):
         return val
 
 
-def unsup_discret(t, x, last, cohen, m):
+def unsup_discret(t, x, last, split):
     t = sorted(t, key=lambda z: x(z))
+    cohen, m = split[0], split[1]
     i = range_manager(t, x, cohen, m)
     RANDOM = R()
     i = nextRange(i)
