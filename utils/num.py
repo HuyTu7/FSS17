@@ -17,7 +17,7 @@ class NUM:
             self.update(f(one))
         return self
 
-    def num_norm(self, x):
+    def norm(self, x):
         return (x - self.lo) / (self.hi - self.lo + math.exp(-32))
 
     def update(self, x):
