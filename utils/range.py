@@ -1,4 +1,4 @@
-from readData import ReadData as TBL
+from num import NUM
 from sample_random import Sample as sampling
 from sample_random import Random as R
 
@@ -31,7 +31,7 @@ def nextRange(i):
 
 
 def range_manager(t, x, cohen, m):
-    DATA = TBL()
+    DATA = NUM()
     control_r = dict()
     control_r['x'] = x
     control_r['cohen'] = cohen
