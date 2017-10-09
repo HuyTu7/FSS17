@@ -14,6 +14,8 @@ class NUM:
     def updates(self, t, f):
         f = f or (lambda x: x)
         for _, one in enumerate(t):
+
+            print f(one)
             self.update(f(one))
         return self
 
@@ -21,6 +23,7 @@ class NUM:
         return (x - self.lo) / (self.hi - self.lo + math.exp(-32))
 
     def update(self, x):
+        print x
         self.n = self.n + 1
         if x < self.lo:
             self.lo = x
