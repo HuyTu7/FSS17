@@ -31,5 +31,16 @@ class SYM:
             self._ent = e
         return self._ent
 
+    def discretize(self, i, x):
+        r = None
+        if not i.bins:
+            return x
+        for b in i.bins:
+            r = b["label"]
+            if x < b["most"]:
+                break
+        return r
+
     def norm(self, x):
         return x
+
