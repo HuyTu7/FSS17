@@ -17,7 +17,7 @@ class readCSV():
         try:
             fval = float(val)
             if fval.is_integer():
-                return int(val), False
+                return int(fval), False
             else:
                 return fval, False
         except ValueError:
@@ -32,7 +32,6 @@ class readCSV():
 
     def clean(self, line, l_index):
         entries = line.split(",")
-        #print entries
         if self.header_f:
             for entry in entries:
                 entry = entry.strip()
@@ -44,7 +43,6 @@ class readCSV():
             if self.noc == len(entries):
                 row = []
                 for index in range(len(entries)):
-                    #print entries[index]
                     if index not in self.ignore_cols:
                         entry = entries[index].strip()
                         if entry:
@@ -59,7 +57,6 @@ class readCSV():
                 if len(row) == self.noc - len(self.ignore_cols):
                     self.csv_df.append(row)
             else:
-                #print entries
                 self.errorlog += "- Not consistent in term of number of columns and the length of the row at row %s \n" % l_index
 
     def readfile(self, filename):
