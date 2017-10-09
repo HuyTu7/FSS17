@@ -25,9 +25,7 @@ def sup_discretize(things, x, y, nump, lessp, split):
     better = lessp and below or above
     what = nump and NUM or SYM
     z = nump and sd or ent
-    cohen = split[0]
-    m = split[1]
-    breaks, ranges = {}, RANGE.unsup_discret(things, x, 0, cohen, m)
+    breaks, ranges = {}, RANGE.unsup_discret(things, x, 0, split)
 
     def data(j):
         data_array = ranges[j]['_all']._all.values()
