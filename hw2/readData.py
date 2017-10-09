@@ -3,6 +3,8 @@ sys.path.append('../utils/')
 import math
 from num import NUM
 from sym import SYM
+import range as RANGE
+import super_range as SUPER_R
 
 
 class Header:
@@ -16,16 +18,17 @@ class Header:
 
 
 class Row:
-    def __init__(self):
-        self.id = -1
-        self.cells = []
-        self.rank = -1
+    def __init__(self, cells=None, id=-1, rank=-1):
+        self.id = id
+        self.cells = cells
+        self.rank = rank
 
 
 class ReadData:
     def __init__(self):
         self.header = Header()
         self.rows = []
+        self.containers = []
         self.errorlog = ''
 
     def remove_mis(self, line):
@@ -46,8 +49,10 @@ class ReadData:
             cate = self.header.header[i][0]
             if cate == "?":
                 self.header.ignore_cols.append(i)
+                self.containers.append(None)
             elif cate == "$" or cate == "<" or cate == ">":
                 self.header.nums[str(i)] = NUM()
+                self.containers.append(NUM())
                 if cate == "<" or cate == ">":
                     if cate == ">":
                         self.header.goals.append((i, 1))
@@ -55,12 +60,13 @@ class ReadData:
                         self.header.goals.append((i, -1))
             else:
                 self.header.syms[str(i)] = SYM()
+                self.containers.append(SYM())
 
     def format(self, val):
         try:
             fval = float(val)
             if fval.is_integer():
-                return int(val), False
+                return int(fval), False
             else:
                 return fval, False
         except ValueError:
@@ -85,6 +91,27 @@ class ReadData:
                     tmp += 1
         return tmp
 
+    def filter(self, tmp_cells, index=None):
+        string_type = False
+        if self.header.noc == len(tmp_cells):
+            for c in range(self.header.noc):
+                if c not in self.header.ignore_cols:
+                    tmp_cells[c], string_type = self.format(tmp_cells[c])
+                    print string_type
+                    if (str(c) in self.header.nums.keys() and string_type) or (str(c) in self.header.syms.keys() and not string_type):
+                        self.errorlog += "- Unexpected data type in line: %s \n" % (index + 1)
+                        break
+                    else:
+                        r.cells = [c for i, c in enumerate(tmp_cells) if i not in self.header.ignore_cols]
+                        self.rows.append(r)
+                        if str(c) in self.header.syms.keys():
+                            self.header.syms[str(c)].update(tmp_cells[c])
+                        else:
+                            self.header.nums[str(c)].update(tmp_cells[c])
+        else:
+            self.errorlog += "- Not consistent in term of number of columns and the length of the row at row %s \n" % (index + 1)
+
+
     def read_table(self, filename):
         with open(filename, "rb") as f2r:
             self.read_header(f2r.readline())
@@ -94,7 +121,8 @@ class ReadData:
                 r = Row()
                 tmp_cells = self.remove_mis(row).split(",")
                 r.id = index
-                string_val = False
+                self.filter(tmp_cells, index)
+                '''
                 if self.header.noc == len(tmp_cells):
                     for c in range(self.header.noc):
                         if c not in self.header.ignore_cols:
@@ -115,6 +143,7 @@ class ReadData:
                         self.errorlog += "- Unexpected data type in line: %s \n" % (index + 1)
                 else:
                     self.errorlog += "- Not consistent in term of number of columns and the length of the row at row %s \n" % (index + 1)
+                '''
                 index += 1
                 row = f2r.readline()
             for r in self.rows:
