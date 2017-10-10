@@ -4,8 +4,8 @@ import sdtree as TREE
 from table import TBL
 
 
-def sdTree(f, y):
-    TREE.tree_min_depth = 10
+def sdTree(f, y, min_d):
+    TREE.tree_min_depth = min_d
     y = y or "dom"
     f = f or "auto.csv"
 
@@ -23,4 +23,4 @@ if __name__ == "__main__":
         sys.exit(0)
     else:
         file = sys.argv[1]
-        sdTree(file, None)
+        sdTree(file, None, 10)
