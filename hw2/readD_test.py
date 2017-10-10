@@ -7,7 +7,7 @@ start = time.time()
 filename = sys.argv[-1]
 sorted_dom_scores = readData.read_table(filename)
 end = time.time()
-print readData.errorlog
+#print readData.errorlog
 print "There are %s entries in the table" % len(sorted_dom_scores)
 print "Time that takes to read csv table: %f" % (end - start)
 print readData.header.header
