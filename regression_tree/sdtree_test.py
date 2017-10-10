@@ -19,7 +19,7 @@ def sdTree(f, y):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: python sdtree.py <csv_file>")
+        print("Usage: python sdtree_test.py <csv_file>")
         sys.exit(0)
     else:
         file = sys.argv[1]
