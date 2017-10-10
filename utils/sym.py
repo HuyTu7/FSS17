@@ -10,6 +10,12 @@ class SYM:
         self.mode = None
         self._ent = None
 
+    def updates(self, t, f):
+        f = f or (lambda x: x)
+        for _, one in enumerate(t):
+            self.update(f(one))
+        return self
+
     def update(self, x):
         x = str(x)
         self.n += 1
