@@ -1,4 +1,6 @@
 import copy
+import sys
+sys.path.append('../utils/')
 from num import NUM
 from sym import SYM
 import range_1 as RANGE
@@ -25,9 +27,7 @@ def sup_discretize(things, x, y, nump, lessp, split):
     better = lessp and below or above
     what = nump and NUM or SYM
     z = nump and sd or ent
-    cohen = split[0]
-    m = split[1]
-    breaks, ranges = {}, RANGE.unsup_discret(things, x, 0, cohen, m)
+    breaks, ranges = {}, RANGE.unsup_discret(things, x, 0, split)
 
     def data(j):
         data_array = ranges[j]['_all']._all.values()
@@ -41,12 +41,10 @@ def sup_discretize(things, x, y, nump, lessp, split):
             inc = -1
         if here != stop:
             b4 = copy.deepcopy(memo(here+inc, stop, _memo, None))
-        #print here
         _memo[here] = b4.updates(data(here), y)
         return _memo[here]
 
     def combine(lo, hi, all, bin, lvl):
-        # print all
         best = z(all)
         lmemo, rmemo = {}, {}
         memo(hi, lo, lmemo, None)
@@ -71,6 +69,5 @@ def sup_discretize(things, x, y, nump, lessp, split):
                 breaks[bin] = ranges[hi]['hi']
         return bin
 
-    combine(1, len(ranges)-1, memo(0, len(ranges) - 1, {}, None), 1, 0)
-    #print breaks
+    combine(1, len(ranges)-1, memo(1, len(ranges)-1, {}, None), 1, 0)
     return labels(breaks)
