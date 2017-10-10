@@ -78,6 +78,7 @@ class TBL():
 
     def data(self, cells, old=None):
         for i in range(len(cells)):
+            #print self.container
             self.container[i].update(cells[i])
         new = ROW(cells)
         if old:
@@ -98,7 +99,7 @@ class TBL():
         return dh
 
     def discretize_rows(self, y):
-        split = [0.5, 0.7]
+        split = [0.2, 0.5]
         j = TBL("").header(self.discretize_headers(), True)
         yfun = y or j.dom
 
@@ -109,7 +110,6 @@ class TBL():
             x = lambda r: r.cells[cooked.pos]
             cooked.bins = SUPER_R.sup_discretize(self.rows, x, yfun, True, True, split)
 
-        print(len(self.rows))
         for r in self.rows:
             tmp = copy.deepcopy(r.cells)
             for head in self.x["nums"]:
@@ -122,7 +122,7 @@ class TBL():
 
     def copy(self, setting):
         j = TBL("")
-        j.header(copy.deepcopy(self.spec))
+        j.header(copy.deepcopy(self.spec), True)
         random.seed(1)
         if setting == "full":
             for r in self.rows:
@@ -131,7 +131,10 @@ class TBL():
             random.shuffle(self.rows)
             for k in range(0, setting):
                 j.data(copy.deepcopy(self.rows[k].cells), self.rows[k])
-        else:
+        elif isinstance(setting, TBL):
             for r in setting.rows:
+                j.data(copy.deepcopy(r.cells), r)
+        else:
+            for r in setting:
                 j.data(copy.deepcopy(r.cells), r)
         return j
