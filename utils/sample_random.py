@@ -9,7 +9,7 @@ class Sample:
 
     def update(self, x, r):
         self.n += 1
-        if self._all < self.most:
+        if len(self._all) < self.most:
             self._all[str(len(self._all))] = x
         elif r < float(len(self._all))/self.n:
             self._all[str(math.floor(1 + r*len(self._all)))] = x
