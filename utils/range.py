@@ -1,6 +1,7 @@
-from num import NUM
 from sample_random import Sample as sampling
 from sample_random import Random as R
+from num import NUM
+
 
 
 def create_r():
@@ -40,9 +41,9 @@ def range_manager(t, x, cohen, m):
     control_r['ranges'] = []
     control_r = nextRange(control_r)
     control_r['num'] = DATA.updates(t, control_r['x'])
-    control_r['hi'] = control_r['num']['hi']
+    control_r['hi'] = control_r['num'].hi
     control_r['enough'] = control_r['size'] ** control_r['m']
-    control_r['epsilon'] = control_r['num']['sd'] * control_r['cohen']
+    control_r['epsilon'] = control_r['num'].sd * control_r['cohen']
     return control_r
 
 
@@ -66,11 +67,11 @@ def unsup_discret(t, x, last, split):
     for j, one in enumerate(t):
         x1 = x(one)
         i['now'] = update(i['now'], one, x1, RANDOM.r())
-        if (j > 1 and x1 > last and
+        if(j > 1 and x1 > last and
             i['now']['n'] > i['enough'] and
             i['now']['span'] > i['epsilon'] and
-            i['num']['n'] - j > i['enough'] and
-            i['num']['hi'] - x1 > i['epsilon']):
+            i['num'].n - j > i['enough'] and
+            i['num'].hi - x1 > i['epsilon']):
             i = nextRange(i)
             last = x1
     for k, range in enumerate(i['ranges']):
