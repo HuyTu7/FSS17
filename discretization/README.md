@@ -48,7 +48,7 @@ python suprange_test.py
 
 ### Report:
 
-Results after running the test file:
+Results after running the test file for 50 generated data entries:
 ```
 We have many unsupervised ranges.
 ('x', 0, {'lo': 0.006301905962779143, 'hi': 0.1885467335528446, 'span': 0.18224482759006547, 'n': 9})
