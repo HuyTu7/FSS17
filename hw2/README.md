@@ -16,6 +16,8 @@
 
 _ `readData.py`: python file to execute the work for this assignment 
 
+_ `readD_test.py`: python file to test readData 
+
 _ `auto.csv`: given original csv data table file 
 
 ### How to run:
