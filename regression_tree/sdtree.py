@@ -87,12 +87,13 @@ def tprint(tr, lvl):
     lvl = lvl or 0
     suffix = ""
     if len(tr._kids) == 0 or lvl == 0:
-        suffix = "n=%s mu=%-.2f sd=%-.2f" % (tr.stats.n, tr.stats.mu, tr.stats.sd)
+        suffix = "n=%s  mu=%-.2f  sd=%-.2f " % (tr.stats.n, tr.stats.mu, tr.stats.sd)
 
     if lvl == 0:
-        print("\n" + suffix)
+        print("\nThe built tree:")
+        print(suffix + "\n")
     else:
-        print(left(pad() + (str(tr.attr) or "") + " = " + (str(tr.val) or "")) + "\t\t\t:" + suffix)
+        print(left(pad() + (str(tr.attr) or "") + " = " + (str(tr.val) or "")) + "\t\t:  " + suffix)
     for j in range(len(tr._kids)):
         tprint(tr._kids[j], lvl+1)
 
