@@ -13,3 +13,11 @@ Note that if the delta is:
 + negative then the contrast is a monitor (something to watch for).
 
 Note also that is statistically there is no difference between the population of instances in each node, then there is no point printing that contrast. 
+
+## Files: 
+
+
+
+## Test: 
+
+Using auto.csv, print the plans and monitors separately. Note that for the leaves with best scores, there should be no plans generated. Similarly, for the leaves with worst scores, there should be monitors generated.
