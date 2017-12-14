@@ -14,14 +14,6 @@ class NUM:
     def updates(self, t, f):
         f = f or (lambda x: x)
         for _, one in enumerate(t):
-            '''
-            print one.cells
-            print [type(c) for c in one.cells]
-            print f
-            print type(f)
-            print f(one), type(f(one))
-            '''
-            #print f(one)
             self.update(f(one))
         return self
 
