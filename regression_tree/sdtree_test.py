@@ -15,6 +15,7 @@ def sdTree(f, y, min_d):
     tr = TREE.grow(tb2, y=tb1.dom)
     print "finishing growing tree"
     TREE.tprint(tr, 0)
+    return tr
 
 
 if __name__ == "__main__":
