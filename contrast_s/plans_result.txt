@@ -1,0 +1,99 @@
+
+0 max mu  {'ninc': 2, 'inc': [('displacement', 1), ('model', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}, {'attr': 'model', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 1}], 'mu2': 353, 'i': 0, 'mu1': 296, 'j': 2, 'muinc': 57} 
+0 min inc {'ninc': 2, 'inc': [('displacement', 1), ('model', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}, {'attr': 'model', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 1}], 'mu2': 353, 'i': 0, 'mu1': 296, 'j': 2, 'muinc': 57} 
+
+1 max mu  {'ninc': 1, 'inc': [('model', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}, {'attr': 'model', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}], 'mu2': 353, 'i': 1, 'mu1': 311, 'j': 2, 'muinc': 42} 
+1 min inc {'ninc': 1, 'inc': [('model', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}, {'attr': 'model', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}], 'mu2': 353, 'i': 1, 'mu1': 311, 'j': 2, 'muinc': 42} 
+
+1 max mu  {'ninc': 1, 'inc': [('model', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}, {'attr': 'model', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}], 'mu2': 353, 'i': 1, 'mu1': 311, 'j': 2, 'muinc': 42} 
+1 min inc {'ninc': 1, 'inc': [('model', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}, {'attr': 'model', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}], 'mu2': 353, 'i': 1, 'mu1': 311, 'j': 2, 'muinc': 42} 
+
+3 max mu  {'ninc': 1, 'inc': [('model', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}, {'attr': 'model', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}, {'attr': 'model', 'val': 2}], 'mu2': 353, 'i': 3, 'mu1': 312, 'j': 2, 'muinc': 41} 
+3 min inc {'ninc': 1, 'inc': [('model', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}, {'attr': 'model', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}, {'attr': 'model', 'val': 2}], 'mu2': 353, 'i': 3, 'mu1': 312, 'j': 2, 'muinc': 41} 
+
+3 max mu  {'ninc': 1, 'inc': [('model', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}, {'attr': 'model', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}, {'attr': 'model', 'val': 2}], 'mu2': 353, 'i': 3, 'mu1': 312, 'j': 2, 'muinc': 41} 
+3 min inc {'ninc': 1, 'inc': [('model', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}, {'attr': 'model', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}, {'attr': 'model', 'val': 2}], 'mu2': 353, 'i': 3, 'mu1': 312, 'j': 2, 'muinc': 41} 
+
+3 max mu  {'ninc': 1, 'inc': [('model', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}, {'attr': 'model', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}, {'attr': 'model', 'val': 2}], 'mu2': 353, 'i': 3, 'mu1': 312, 'j': 2, 'muinc': 41} 
+3 min inc {'ninc': 1, 'inc': [('model', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}, {'attr': 'model', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}, {'attr': 'model', 'val': 2}], 'mu2': 353, 'i': 3, 'mu1': 312, 'j': 2, 'muinc': 41} 
+
+3 max mu  {'ninc': 1, 'inc': [('model', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}, {'attr': 'model', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}, {'attr': 'model', 'val': 2}], 'mu2': 353, 'i': 3, 'mu1': 312, 'j': 2, 'muinc': 41} 
+3 min inc {'ninc': 1, 'inc': [('model', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}, {'attr': 'model', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}, {'attr': 'model', 'val': 2}], 'mu2': 353, 'i': 3, 'mu1': 312, 'j': 2, 'muinc': 41} 
+
+7 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 2}], 'mu2': 296, 'i': 7, 'mu1': 225, 'j': 0, 'muinc': 71} 
+7 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 2}], 'mu2': 296, 'i': 7, 'mu1': 225, 'j': 0, 'muinc': 71} 
+
+8 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 2}, {'attr': 'displacement', 'val': 1}], 'mu2': 311, 'i': 8, 'mu1': 276, 'j': 1, 'muinc': 35} 
+8 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 2}, {'attr': 'displacement', 'val': 1}], 'mu2': 311, 'i': 8, 'mu1': 276, 'j': 1, 'muinc': 35} 
+
+9 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 2}, {'attr': 'displacement', 'val': 2}], 'mu2': 296, 'i': 9, 'mu1': 264, 'j': 0, 'muinc': 32} 
+9 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 2}, {'attr': 'displacement', 'val': 2}], 'mu2': 296, 'i': 9, 'mu1': 264, 'j': 0, 'muinc': 32} 
+
+10 max mu  {'ninc': 3, 'inc': [('horsepower', 1), ('displacement', 1), ('model', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}, {'attr': 'model', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 2}, {'attr': 'displacement', 'val': 2}, {'attr': 'model', 'val': 5}], 'mu2': 353, 'i': 10, 'mu1': 316, 'j': 2, 'muinc': 37} 
+10 min inc {'ninc': 3, 'inc': [('horsepower', 1), ('displacement', 1), ('model', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}, {'attr': 'displacement', 'val': 1}, {'attr': 'model', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 2}, {'attr': 'displacement', 'val': 2}, {'attr': 'model', 'val': 5}], 'mu2': 353, 'i': 10, 'mu1': 316, 'j': 2, 'muinc': 37} 
+
+11 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 2}, {'attr': 'displacement', 'val': 3}], 'mu2': 296, 'i': 11, 'mu1': 235, 'j': 0, 'muinc': 61} 
+11 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 2}, {'attr': 'displacement', 'val': 3}], 'mu2': 296, 'i': 11, 'mu1': 235, 'j': 0, 'muinc': 61} 
+
+12 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 2}, {'attr': 'displacement', 'val': 3}, {'attr': 'model', 'val': 5}], 'mu2': 296, 'i': 12, 'mu1': 248, 'j': 0, 'muinc': 48} 
+12 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 2}, {'attr': 'displacement', 'val': 3}, {'attr': 'model', 'val': 5}], 'mu2': 296, 'i': 12, 'mu1': 248, 'j': 0, 'muinc': 48} 
+
+13 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 3}], 'mu2': 296, 'i': 13, 'mu1': 157, 'j': 0, 'muinc': 139} 
+13 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 3}], 'mu2': 296, 'i': 13, 'mu1': 157, 'j': 0, 'muinc': 139} 
+
+14 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 3}, {'attr': 'cylinders', 'val': 4}], 'mu2': 296, 'i': 14, 'mu1': 206, 'j': 0, 'muinc': 90} 
+14 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 3}, {'attr': 'cylinders', 'val': 4}], 'mu2': 296, 'i': 14, 'mu1': 206, 'j': 0, 'muinc': 90} 
+
+15 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 3}, {'attr': 'cylinders', 'val': 4}, {'attr': 'displacement', 'val': 2}], 'mu2': 296, 'i': 15, 'mu1': 202, 'j': 0, 'muinc': 94} 
+15 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 3}, {'attr': 'cylinders', 'val': 4}, {'attr': 'displacement', 'val': 2}], 'mu2': 296, 'i': 15, 'mu1': 202, 'j': 0, 'muinc': 94} 
+
+16 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 3}, {'attr': 'cylinders', 'val': 4}, {'attr': 'displacement', 'val': 2}, {'attr': 'origin', 'val': 3}], 'mu2': 296, 'i': 16, 'mu1': 213, 'j': 0, 'muinc': 83} 
+16 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 3}, {'attr': 'cylinders', 'val': 4}, {'attr': 'displacement', 'val': 2}, {'attr': 'origin', 'val': 3}], 'mu2': 296, 'i': 16, 'mu1': 213, 'j': 0, 'muinc': 83} 
+
+17 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 3}, {'attr': 'cylinders', 'val': 6}], 'mu2': 296, 'i': 17, 'mu1': 134, 'j': 0, 'muinc': 162} 
+17 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 3}, {'attr': 'cylinders', 'val': 6}], 'mu2': 296, 'i': 17, 'mu1': 134, 'j': 0, 'muinc': 162} 
+
+18 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 3}, {'attr': 'cylinders', 'val': 6}, {'attr': 'displacement', 'val': 6}], 'mu2': 296, 'i': 18, 'mu1': 135, 'j': 0, 'muinc': 161} 
+18 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 3}, {'attr': 'cylinders', 'val': 6}, {'attr': 'displacement', 'val': 6}], 'mu2': 296, 'i': 18, 'mu1': 135, 'j': 0, 'muinc': 161} 
+
+19 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 4}], 'mu2': 296, 'i': 19, 'mu1': 137, 'j': 0, 'muinc': 159} 
+19 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 4}], 'mu2': 296, 'i': 19, 'mu1': 137, 'j': 0, 'muinc': 159} 
+
+20 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 4}, {'attr': 'displacement', 'val': 7}], 'mu2': 296, 'i': 20, 'mu1': 114, 'j': 0, 'muinc': 182} 
+20 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 4}, {'attr': 'displacement', 'val': 7}], 'mu2': 296, 'i': 20, 'mu1': 114, 'j': 0, 'muinc': 182} 
+
+21 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 5}], 'mu2': 296, 'i': 21, 'mu1': 85, 'j': 0, 'muinc': 211} 
+21 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 5}], 'mu2': 296, 'i': 21, 'mu1': 85, 'j': 0, 'muinc': 211} 
+
+22 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 5}, {'attr': 'model', 'val': 4}], 'mu2': 296, 'i': 22, 'mu1': 93, 'j': 0, 'muinc': 203} 
+22 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 5}, {'attr': 'model', 'val': 4}], 'mu2': 296, 'i': 22, 'mu1': 93, 'j': 0, 'muinc': 203} 
+
+23 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 6}], 'mu2': 296, 'i': 23, 'mu1': 46, 'j': 0, 'muinc': 250} 
+23 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 6}], 'mu2': 296, 'i': 23, 'mu1': 46, 'j': 0, 'muinc': 250} 
+
+24 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 6}, {'attr': 'model', 'val': 1}], 'mu2': 296, 'i': 24, 'mu1': 51, 'j': 0, 'muinc': 245} 
+24 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 6}, {'attr': 'model', 'val': 1}], 'mu2': 296, 'i': 24, 'mu1': 51, 'j': 0, 'muinc': 245} 
+
+25 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 6}, {'attr': 'model', 'val': 1}, {'attr': 'displacement', 'val': 8}], 'mu2': 296, 'i': 25, 'mu1': 63, 'j': 0, 'muinc': 233} 
+25 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 6}, {'attr': 'model', 'val': 1}, {'attr': 'displacement', 'val': 8}], 'mu2': 296, 'i': 25, 'mu1': 63, 'j': 0, 'muinc': 233} 
+
+26 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 6}, {'attr': 'model', 'val': 2}], 'mu2': 296, 'i': 26, 'mu1': 45, 'j': 0, 'muinc': 251} 
+26 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 6}, {'attr': 'model', 'val': 2}], 'mu2': 296, 'i': 26, 'mu1': 45, 'j': 0, 'muinc': 251} 
+
+27 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 6}, {'attr': 'model', 'val': 3}], 'mu2': 296, 'i': 27, 'mu1': 54, 'j': 0, 'muinc': 242} 
+27 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 6}, {'attr': 'model', 'val': 3}], 'mu2': 296, 'i': 27, 'mu1': 54, 'j': 0, 'muinc': 242} 
+
+28 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 7}], 'mu2': 296, 'i': 28, 'mu1': 27, 'j': 0, 'muinc': 269} 
+28 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 7}], 'mu2': 296, 'i': 28, 'mu1': 27, 'j': 0, 'muinc': 269} 
+
+29 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 7}, {'attr': 'model', 'val': 1}], 'mu2': 296, 'i': 29, 'mu1': 20, 'j': 0, 'muinc': 276} 
+29 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 7}, {'attr': 'model', 'val': 1}], 'mu2': 296, 'i': 29, 'mu1': 20, 'j': 0, 'muinc': 276} 
+
+30 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 7}, {'attr': 'model', 'val': 1}, {'attr': 'displacement', 'val': 9}], 'mu2': 296, 'i': 30, 'mu1': 25, 'j': 0, 'muinc': 271} 
+30 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 7}, {'attr': 'model', 'val': 1}, {'attr': 'displacement', 'val': 9}], 'mu2': 296, 'i': 30, 'mu1': 25, 'j': 0, 'muinc': 271} 
+
+31 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 8}], 'mu2': 296, 'i': 31, 'mu1': 22, 'j': 0, 'muinc': 274} 
+31 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 8}], 'mu2': 296, 'i': 31, 'mu1': 22, 'j': 0, 'muinc': 274} 
+
+32 max mu  {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 8}, {'attr': 'model', 'val': 1}], 'mu2': 296, 'i': 32, 'mu1': 18, 'j': 0, 'muinc': 278} 
+32 min inc {'ninc': 1, 'inc': [('horsepower', 1)], 'branch2': [{'attr': 'horsepower', 'val': 1}], 'branch1': [{'attr': 'horsepower', 'val': 8}, {'attr': 'model', 'val': 1}], 'mu2': 296, 'i': 32, 'mu1': 18, 'j': 0, 'muinc': 278} 
