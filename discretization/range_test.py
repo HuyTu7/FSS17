@@ -1,7 +1,7 @@
 import sys
 sys.path.append('../utils/')
-import range_1 as RANGE
 from sample_random import Random as R
+import range_1 as RANGE
 
 
 def f(z):
@@ -9,17 +9,18 @@ def f(z):
 
 
 def range_test():
-    cohen = 0.5
-    m = 0.7
+    cohen = 0.2
+    m = 0.5
+    split = [cohen, m]
     RANDOM = R()
     RANDOM.rseed(1)
     tmp = []
-    for i in range(1, 1001):
+    for i in range(1, 51):
         tmp.append((RANDOM.r()**2, len(tmp)+1))
     print("ranges: ")
     print("%5s\t%5s\t%5s\t%5s\n" % ("#", "n", "lo", "hi"))
     print("%5s\t%5s\t%5s\t%5s\n" % ("-----", "-----", "-----", "-----"))
-    ranges = RANGE.unsup_discret(tmp, f, 0, cohen, m)
+    ranges = RANGE.unsup_discret(tmp, f, 0, split)
     for i, k in enumerate(ranges):
         print("%5s\t%5s\t%5.3f\t%5.3f\n" % (i, k['n'], k['lo'], k['hi']))
 
