@@ -51,6 +51,7 @@ def delta(t1, t2):
 
 
 def contrasts(branches, better):
+    result = ""
     for i, branch1 in enumerate(branches):
         out = []
         for j, branch2 in enumerate(branches):
@@ -66,14 +67,16 @@ def contrasts(branches, better):
                                         'branch2': branch2['has'], 'mu2': num2.mu}
                             out.append(temp_out)
         if len(out) > 0:
-            print("")
+            tmp_result = "\n"
             sorted(out, key=lambda x: x['muinc'])
-            print("%s max mu  %s" % (i, out[0]))
+            tmp_result += "%s max mu  %s \n" % (i, out[0])
             sorted(out, key=lambda x: x['ninc'])
-            print("%s min inc %s" % (i, out[0]))
-        else:
-            print("Empty out at i_%s" % i)
-    return out
+            tmp_result += "%s min inc %s \n" % (i, out[0])
+        #else:
+        #    tmp_result = "Empty out at i_%s \n" % i
+        print(tmp_result)
+        result += tmp_result
+    return out, result
 
 
 def more(x, y): return x > y
