@@ -37,7 +37,7 @@ class NUM:
         nom = (i.n - 1.0) * (i.sd ** 2) + (j.n - 1.0) * (j.sd ** 2) * 1.0
         denom = (i.n - 1.0) + (j.n - 1.0)
         sp = 0.0 + (nom / denom) ** 0.5
-        g = abs(i.mean - j.mean) / sp
+        g = abs(i.mu - j.mu) / sp
         c = 1.0 - 3.0 / (4.0 * (i.n + j.n - 2.0) - 1)
         return g * c > 0.38
 
@@ -60,7 +60,7 @@ class NUM:
     def ttest(self, i, j):
         critical_vals = {95:{3:3.182, 6:2.447, 12:2.179, 24:2.064, 48:2.011, 96:1.985},\
                          99:{3:5.841, 6:3.707, 12:3.055, 24:2.797, 48:2.682, 96:2.625}}
-        t = (i.mean - j.mean + 0.0) / math.sqrt(max(1e-64, (i.sd ** 2 + 0.0) / i.n + (j.sd ** 2 + 0.0) / j.n))
+        t = (i.mu - j.mu + 0.0) / math.sqrt(max(1e-64, (i.sd ** 2 + 0.0) / i.n + (j.sd ** 2 + 0.0) / j.n))
         a = (1.0 * i.sd ** 2) / i.n
         b = (1.0 * j.sd * 2) / j.n
         df = (a + b + 0.0) ** 2 / (1e-64 + a ** 2 / (i.n - 1.0) + b ** 2 / (j.n - 1.0))
