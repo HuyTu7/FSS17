@@ -14,9 +14,22 @@ Note that if the delta is:
 
 Note also that is statistically there is no difference between the population of instances in each node, then there is no point printing that contrast. 
 
-## Files: 
+### Files: 
 
+_ `contrast_set.py`: python file to execute the work for this assignment 
 
+_ `contrasts_test.py`: python file to test readData 
+
+_ `auto.csv`: given original csv data table file 
+
+### How to run:
+
+- Assuming that you have installed python 2.7
+- Execute the command line as below in the terminal within the `contrast_s` folder:
+
+```
+python contrasts_test.py <file_name>
+```
 
 ## Test: 
 
